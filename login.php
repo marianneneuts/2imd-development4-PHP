@@ -28,7 +28,7 @@
 	<div class="IMDLogin">
 		<div class="form-login">
 			<form action="" method="post">
-                <h2>Sign in to [project codename]</h2>
+                <h2>Login to [project codename]</h2>
                 <p>Inspiration is everywhere! Just take a look around. 👀</p>
 
                 <?php if(isset($error)): ?>
