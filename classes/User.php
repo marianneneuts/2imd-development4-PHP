@@ -62,4 +62,12 @@
             $result = $statement->execute();
             return $result;
         }
+
+        public static function getAll() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from users");
+            $statement->execute();
+            $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $users;
+        }
     }
