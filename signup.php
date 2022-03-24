@@ -64,7 +64,7 @@
                     <input type="submit" value="Sign up" class="btn-primary">
                 </div>
 
-                <p>Already have an account? 🥳 <a href="#" target="_blank">Log in</a></p>
+                <p>Already have an account? 🥳 <a href="login.php" target="_blank">Log in</a></p>
             </form>
         </div>
 	</div>
