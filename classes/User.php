@@ -36,11 +36,16 @@
 
         // password
         public function setPassword($password) {
-
+            // the user must not enter a password that is less than 6 characters
+            $password_input= $_POST['password'];
+            if(empty($password) || strlen($password_input) <= 6) {
+                throw new Exception("Set a minimum password length of 6 characters.");
+            }
+            $this->password = $password;
         }
 
         public function getPassword() {
-
+            return $this->password;
         }
 
         public function signup() {
