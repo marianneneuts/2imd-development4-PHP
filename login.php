@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<?php
+    if(!empty($_POST)) {
+        try {
+            include_once(__DIR__ . "/classes/User.php");
+
+            $user = new User();
+            $user->setEmail($_POST['email']);
+            $user->setPassword($_POST['password']);
+
+            if ($user->login()) {
+                session_start();
+                header("Location: index.php");
+		    }
+        }
+        catch(Throwable $error) {
+            $error = $error->getMessage();
+        }
+    }
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +30,13 @@
 			<form action="" method="post">
                 <h2>Sign in to [project codename]</h2>
                 <p>Inspiration is everywhere! Just take a look around. 👀</p>
+
+                <?php if(isset($error)): ?>
+                    <div class="form-error">
+                        <p><strong>Warnings:</strong></p>
+                        <?php if(isset($error)) { echo $error; }?>
+                    </div>
+                <?php endif; ?>
 
 				<div class="form__field">
 					<label for="Email">Email</label>
@@ -26,7 +52,7 @@
 					<input type="checkbox" id="rememberMe"><label for="rememberMe" class="label__inline">Remember me</label>
 				</div>
 
-                <p>Don't have an account yet? 🤯 <a href="/signup.php" target="_blank">Sign up</a></p>
+                <p>Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
 			</form>
 		</div>
 	</div>
