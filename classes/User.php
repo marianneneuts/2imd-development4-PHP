@@ -21,11 +21,17 @@
 
         // email
         public function setEmail($email) {
-
+            // validation to check if email address contains @student.thomasmore.be or @thomasmore.be
+            if (!strpos($email, '@student.thomasmore.be')) {
+                if (!strpos($email, '@thomasmore.be')) {
+                    throw new Exception("Enter your Thomas More email address.");
+                }
+            }
+            $this->email = $email;
         }
 
         public function getEmail() {
-        
+            return $this->email;
         }
 
         // password
