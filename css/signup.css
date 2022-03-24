@@ -15,6 +15,13 @@ body {
     align-items: center;
 }
 
+.form-error {
+    background-color: #bffd00;
+    color: #0600ff;
+    padding: 0.3em 1em;
+    margin-bottom: 1em;
+}
+
 .form-signup {
     background-color: #fcd7f7;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
