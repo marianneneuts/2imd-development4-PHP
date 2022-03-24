@@ -1,4 +1,30 @@
-<!DOCTYPE html>
+<?php
+    if(!empty($_POST)) {
+        try {
+            include_once(__DIR__ . "/classes/User.php");
+
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            // password hash
+            $options = [
+                'cost' => 12,
+            ];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+
+            $user = new User();
+            $user->setUsername($username);
+            $user->setEmail($email);
+            $user->setPassword($password);
+
+            $user->signup();
+            header("Location: login.php");
+        }
+        catch(Throwable $error) {
+            $error = $error->getMessage();
+        }
+    }
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +38,13 @@
                 <h2>Sign up to [project codename]</h2>
                 <p>Inspiration is everywhere! Just take a look around. 👀</p>
 
+                <?php if(isset($error)): ?>
+                    <div class="form-error">
+                        <p><strong>Warnings:</strong></p>
+                        <?php if(isset($error)) { echo $error; }?>
+                    </div>
+                <?php endif; ?>
+                
                 <div class="form__field">
                     <label for="Username">Username</label>
                     <input autocomplete="off" type="text" name="username">
@@ -25,11 +58,6 @@
                 <div class="form__field">
                     <label for="Password">Password</label>
                     <input type="password" name="password">
-                </div>
-
-                <div class="form__field">
-                    <label for="Password">Repeat password</label>
-                    <input type="password" name="repeatPassword">
                 </div>
 
                 <div class="form__field">
