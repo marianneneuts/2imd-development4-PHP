@@ -6,8 +6,8 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 ### Feature list:
 | Features - Level 1 [due date, 25/03/2022] | Info | Status |
 | ------------- | ------------- | ------------- |
-| Feature 1 | Create account [email, full name or username, password] | Not Started |
-| Feature 2 | Sign in [email, password] | Not Started |
+| Feature 1 | Create account [email, full name or username, password] | In Process |
+| Feature 2 | Sign in [email, password] | Done |
 | Feature 3 | Reset password [email] | Not Started |
 | Feature 4 | Sign out | Not Started |
 | Feature 5 | Edit profile | Not Started |
@@ -16,7 +16,7 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 | Info | Status |
 | ------------- | ------------- |
 | Signup form | Done |
-| Login form | Not Started |
+| Login form | Done |
 | Reset password form | Not Started |
 | Empty state | Not Started |
 
