@@ -15,7 +15,7 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 ### Extra [HTML & CSS]:
 | Info | Status |
 | ------------- | ------------- |
-| Signup form | Not Started |
+| Signup form | Done |
 | Login form | Not Started |
 | Reset password form | Not Started |
 | Empty state | Not Started |
