@@ -70,4 +70,12 @@
             $users = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $users;
         }
+
+        public function login() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select email, password from users where email = :email");
+            $statement->bindValue(":email", $this->email);
+            $statement->execute();
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+        }
     }
