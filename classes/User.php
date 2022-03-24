@@ -77,5 +77,19 @@
             $statement->bindValue(":email", $this->email);
             $statement->execute();
             $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if ($user) {
+                $hash = $user['password'];
+                if (password_verify($this->password, $hash)) {
+                    return true;
+                } 
+                else {
+                    throw new Exception("The password is incorrect. Try again.");
+                    return false;
+                }
+            }
+            else {
+                throw new Exception("The information does not match. Try again.");
+            }
         }
     }
