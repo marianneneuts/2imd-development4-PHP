@@ -8,11 +8,15 @@
 
         // username
         public function setUsername($username) {
-        
+            // the user must enter a valid username
+            if(empty($username)) {
+                throw new Exception("Please enter a valid username.");
+            }
+            $this->username = $username;
         }
 
         public function getUsername() {
-
+            return $this->username;
         }
 
         // email
