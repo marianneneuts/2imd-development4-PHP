@@ -6,7 +6,7 @@ body {
     background-color: #fcd7f7;
 }
 
-.IMDSignup {
+.IMDLogin {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr [form] minmax(240px, 450px) 1fr;
@@ -22,7 +22,7 @@ body {
     margin-bottom: 1em;
 }
 
-.form-signup {
+.form-login {
     background-color: #fcd7f7;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 1em;
