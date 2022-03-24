@@ -6,10 +6,11 @@
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-	<div class="login">
-		<div class="form form--login">
+	<div class="IMDLogin">
+		<div class="form-login">
 			<form action="" method="post">
-				<h2 form__title>Sign In</h2>
+                <h2>Sign in to [project codename]</h2>
+                <p>Inspiration is everywhere! Just take a look around. 👀</p>
 
 				<div class="form__field">
 					<label for="Email">Email</label>
@@ -21,7 +22,7 @@
 				</div>
 
 				<div class="form__field">
-					<input type="submit" value="Sign in" class="btn btn--primary">	
+					<input type="submit" value="Sign in" class="btn-primary">	
 					<input type="checkbox" id="rememberMe"><label for="rememberMe" class="label__inline">Remember me</label>
 				</div>
 
