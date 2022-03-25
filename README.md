@@ -6,7 +6,7 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 ### Feature list:
 | Features - Level 1 [due date, 25/03/2022] | Info | Status |
 | ------------- | ------------- | ------------- |
-| Feature 1 | Create account [email, full name or username, password] | In Process |
+| Feature 1 | Create account [email, full name or username, password] | Done |
 | Feature 2 | Sign in [email, password] | Done |
 | Feature 3 | Reset password [email] | Not Started |
 | Feature 4 | Sign out | Done |
