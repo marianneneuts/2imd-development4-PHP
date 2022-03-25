@@ -48,6 +48,14 @@
             return $this->password;
         }
 
+        public static function getAll() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from users");
+            $statement->execute();
+            $users = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $users;
+        }
+
         public function signup() {
             $conn = Db::getInstance();
             $statement = $conn->prepare("insert into users (username, email, password) values (:username, :email, :password)");
@@ -63,12 +71,24 @@
             return $result;
         }
 
-        public static function getAll() {
+        public function canSignup($password,$repeatPassword) {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("select * from users");
+            $statement = $conn->prepare("select email, password from users where email = :email");
+            $statement->bindValue(":email", $this->email);
             $statement->execute();
-            $users = $statement->fetchAll(PDO::FETCH_ASSOC);
-            return $users;
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            if(!$user) {
+                if($password === $repeatPassword) {
+                    return true;
+                }
+                else {
+                    throw new Exception("The passwords do not match. Try again.");
+                    return false;
+                }
+            }
+            else {
+                
+            }
         }
 
         public function login() {
