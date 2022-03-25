@@ -10,14 +10,19 @@
                 'cost' => 12,
             ];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+            $repeatPassword = $_POST['repeatPassword'];
 
             $user = new User();
             $user->setUsername($username);
             $user->setEmail($email);
             $user->setPassword($password);
 
-            $user->signup();
-            header("Location: login.php");
+            if($user->canSignup($password,$repeatPassword)) {
+                session_start();
+                $user->signup();
+                header("Location: login.php"); 
+            }
+            
         }
         catch(Throwable $error) {
             $error = $error->getMessage();
@@ -58,6 +63,11 @@
                 <div class="form__field">
                     <label for="Password">Password</label>
                     <input type="password" name="password">
+                </div>
+
+                <div class="form__field">
+                    <label for="Password">Repeat password</label>
+                    <input type="password" name="repeatPassword">
                 </div>
 
                 <div class="form__field">
