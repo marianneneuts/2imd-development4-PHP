@@ -87,7 +87,8 @@
                 }
             }
             else {
-                
+                throw new Exception("This account already exists.");
+                return false;
             }
         }
 
