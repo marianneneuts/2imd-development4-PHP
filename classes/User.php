@@ -57,26 +57,28 @@
         }
 
         public function signup() {
+            // password hash
+            $options = [
+                'cost' => 12,
+            ];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+
             $conn = Db::getInstance();
             $statement = $conn->prepare("insert into users (username, email, password) values (:username, :email, :password)");
 
-            $username = $this->getUsername();
-            $email = $this->getEmail();
-            $password = $this->getPassword();
-
-            $statement->bindValue("username", $username);
-            $statement->bindValue("email", $email);
-            $statement->bindValue("password", $password);
+            $statement->bindValue(":username", $this->username);
+            $statement->bindValue(":email", $this->email);
+            $statement->bindValue(":password", $password);
             $result = $statement->execute();
             return $result;
         }
 
-        public function canSignup($password,$repeatPassword) {
+        public function canSignup($password, $repeatPassword) {
             $conn = Db::getInstance();
             $statement = $conn->prepare("select email, password from users where email = :email");
             $statement->bindValue(":email", $this->email);
             $statement->execute();
-            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            $user = ($statement->fetch());
             if(!$user) {
                 if($password === $repeatPassword) {
                     return true;

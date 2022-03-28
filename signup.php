@@ -5,11 +5,7 @@
 
             $username = $_POST['username'];
             $email = $_POST['email'];
-            // password hash
-            $options = [
-                'cost' => 12,
-            ];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
+            $password = $_POST['password'];
             $repeatPassword = $_POST['repeatPassword'];
 
             $user = new User();
@@ -17,12 +13,11 @@
             $user->setEmail($email);
             $user->setPassword($password);
 
-            if($user->canSignup($password,$repeatPassword)) {
+            if($user->canSignup($password, $repeatPassword)) {
                 session_start();
                 $user->signup();
-                header("Location: login.php"); 
+                header("Location: login.php");
             }
-            
         }
         catch(Throwable $error) {
             $error = $error->getMessage();
