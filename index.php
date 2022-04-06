@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <a href="logout.php">Logout</a>
+    <?php include_once("nav.inc.php"); ?>
     
 </body>
 </html>
