@@ -2,7 +2,6 @@
 ### Goal:
 Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zoals: UIs, logo’s, branding, typografie, schetsen, e.d.
 
-
 ### Feature list:
 | Features - Level 1 [due date, 25/03/2022] | Info | Status |
 | ------------- | ------------- | ------------- |
