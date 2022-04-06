@@ -12,6 +12,14 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 | Feature 4 | Sign out | Done |
 | Feature 5 | Edit profile | Not Started |
 
+| Features - Level 1 [due date, 22/04/2022] | Info | Status |
+| ------------- | ------------- | ------------- |
+| Feature 6 | Edit profile [secondary email, short bio, education, social links] | Not Started |
+| Feature 7 | Edit profile [change password] | Not Started |
+| Feature 8 | Delete profile | Not Started |
+| Feature 9 | Add projects [title, image, tags] | Not Started |
+| Feature 10 | Feed | Not Started |
+
 ### Extra [HTML & CSS]:
 | Info | Status |
 | ------------- | ------------- |
@@ -19,6 +27,10 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 | Login form | Done |
 | Reset password form | Not Started |
 | Empty state | Not Started |
+| - | - |
+| Profile page | Not Started |
+| Project page [feed] | Not Started |
+| Add new project page | Not Started |
 
 #### Understanding Git 🤓
 https://docs.google.com/document/d/1B9Omut-Ol6qq0Ukv7IviALKw6RuAI_BEAvm4773K1M8/edit?usp=sharing
