@@ -29,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <title>[project codename]</title>
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
 </head>
 <body>
 	<div class="IMDSignup">
