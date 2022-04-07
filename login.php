@@ -22,39 +22,45 @@
 <head>
   <meta charset="UTF-8">
   <title>IMD Social Showcase</title>
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
 </head>
 <body>
-	<div class="IMDLogin">
-		<div class="form-login">
-			<form action="" method="post">
-                <h2>Login to [project codename]</h2>
-                <p>Inspiration is everywhere! Just take a look around. 👀</p>
+    <div class="split left">
+        <img src="https://weareimd.be/assets/images/home_banner.png" alt="weareimd">
+    </div>
 
-                <?php if(isset($error)): ?>
-                    <div class="form-error">
-                        <p><strong>Warnings:</strong></p>
-                        <?php if(isset($error)) { echo $error; }?>
+    <div class="split right">
+        <div class="IMDLogin">
+            <div class="form-login">
+                <form action="" method="post">
+                    <h2>Login to [project codename]</h2>
+                    <p class="inspiration">Inspiration is everywhere! Just take a look around. 👀</p>
+
+                    <?php if(isset($error)): ?>
+                        <div class="form-error">
+                            <p><strong>Warnings:</strong></p>
+                            <?php if(isset($error)) { echo $error; }?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="form__field">
+                        <!-- <label for="Email">Email</label> -->
+                        <input autocomplete="off" type="text" name="email" placeholder="Email">
                     </div>
-                <?php endif; ?>
+                    <div class="form__field">
+                        <!-- <label for="Password">Password</label> -->
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
 
-				<div class="form__field">
-					<label for="Email">Email</label>
-					<input autocomplete="off" type="text" name="email">
-				</div>
-				<div class="form__field">
-					<label for="Password">Password</label>
-					<input type="password" name="password">
-				</div>
+                    <div class="form__field">
+                        <input type="submit" value="Sign in" class="btn-primary">
+                    </div>
 
-				<div class="form__field">
-					<input type="submit" value="Sign in" class="btn-primary">	
-					<input type="checkbox" id="rememberMe"><label for="rememberMe" class="label__inline">Remember me</label>
-				</div>
-
-                <p>Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
-			</form>
-		</div>
-	</div>
+                    <p class="signup">Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
+                    <p class="forgot-password">Forgot your password? <a href="forgot_password.php" target="_blank">Reset your password here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
