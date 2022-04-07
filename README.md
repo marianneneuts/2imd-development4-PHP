@@ -19,17 +19,5 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 | Feature 9 | Add projects [title, image, tags] | Not Started |
 | Feature 10 | Feed | Not Started |
 
-### Extra [HTML & CSS]:
-| Info | Status |
-| ------------- | ------------- |
-| Signup form | Done |
-| Login form | Done |
-| Reset password form | Not Started |
-| Empty state | Not Started |
-| - | - |
-| Profile page | Not Started |
-| Project page [feed] | Not Started |
-| Add new project page | Not Started |
-
 #### Understanding Git 🤓
 https://docs.google.com/document/d/1B9Omut-Ol6qq0Ukv7IviALKw6RuAI_BEAvm4773K1M8/edit?usp=sharing
