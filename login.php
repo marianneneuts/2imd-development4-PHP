@@ -53,6 +53,7 @@
 				</div>
 
                 <p>Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
+                <p>Forgot your password? <a href="forgot_password.php" target="_blank">Reset your password here</a></p>
 			</form>
 		</div>
 	</div>
