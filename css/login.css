@@ -2,8 +2,32 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #fcd7f7;
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.left {
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.left img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.right {
+    right: 0;
+    background-color: #0600ff;
 }
 
 .IMDLogin {
@@ -16,22 +40,25 @@ body {
 }
 
 .form-error {
-    background-color: #bffd00;
+    background-color: #fcd7f7;
     color: #0600ff;
     padding: 0.3em 1em;
     margin-bottom: 1em;
 }
 
 .form-login {
-    background-color: #fcd7f7;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #0600ff;
     padding: 1em;
     grid-column: form;
     grid-row: form;
 }
 
 h2 {
-    color: #0600ff;
+    color: white;
+}
+
+.inspiration {
+    color: white;
 }
 
 .form__field {
@@ -56,8 +83,32 @@ h2 {
 
 .btn-primary {
     background-color: #bffd00;
-    color: black;
+    color: #0600ff;
     text-align: center;
     border: none;
     padding: 0.3em 2em;
+}
+
+.signup {
+    color: white;
+}
+
+.signup a:active {
+    color: white;
+}
+
+.signup a:visited {
+    color: white;
+}
+
+.forgot-password {
+    color: white;
+}
+
+.forgot-password a:active {
+    color: white;
+}
+
+.forgot-password a:visited {
+    color: white;
 }
