@@ -1,23 +1,16 @@
+<?php include_once('core/autoload.php'); ?>
+
 <?php
     if(!empty($_POST)) {
         try {
-            include_once(__DIR__ . "/classes/User.php");
-
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $repeatPassword = $_POST['repeatPassword'];
-
             $user = new User();
-            $user->setUsername($username);
-            $user->setEmail($email);
-            $user->setPassword($password);
+            $user->setUsername($_POST["username"]);
+            $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
+            $user->signup();
 
-            if($user->canSignup($password, $repeatPassword)) {
-                session_start();
-                $user->signup();
-                header("Location: login.php");
-            }
+            session_start();
+            header("Location: login.php");
         }
         catch(Throwable $error) {
             $error = $error->getMessage();
@@ -63,11 +56,6 @@
                     <div class="form__field">
                         <!-- <label for="Password">Password</label> -->
                         <input type="password" name="password" placeholder="Password">
-                    </div>
-
-                    <div class="form__field">
-                        <!-- <label for="Password">Repeat password</label> -->
-                        <input type="password" name="repeatPassword" placeholder="Repeat password">
                     </div>
 
                     <div class="form__field">

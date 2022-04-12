@@ -1,19 +1,26 @@
 <?php
-    if(!empty($_POST)) {
-        try {
-            include_once(__DIR__ . "/classes/User.php");
+    include_once('core/autoload.php');
+    session_start();
+    
+    // when the user is logged in
+    if(isset($_SESSION["loggedIn"])) {
+        header("Location: index.php");   
+    }
 
-            $user = new User();
-            $user->setEmail($_POST['email']);
-            $user->setPassword($_POST['password']);
+    // when the user can login
+    if(isset($_POST["logIn"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
 
-            if ($user->login()) {
-                session_start();
-                header("Location: index.php");
-		    }
-        }
-        catch(Throwable $error) {
-            $error = $error->getMessage();
+        if (User::canLogin($username, $password)) {
+            $_SESSION['username'] = $username;
+            $_SESSION['loggedIn'] = true;
+            $_SESSION["userId"] = User::getUserIdByUsername($username);
+
+            header("Location: index.php");
+		}
+        else {
+            $error = "Your username or password is incorrect.";
         }
     }
 
@@ -44,8 +51,8 @@
                     <?php endif; ?>
 
                     <div class="form__field">
-                        <!-- <label for="Email">Email</label> -->
-                        <input autocomplete="off" type="text" name="email" placeholder="Email">
+                        <!-- <label for="Username">Username</label> -->
+                        <input autocomplete="off" type="text" name="username" placeholder="Username">
                     </div>
                     <div class="form__field">
                         <!-- <label for="Password">Password</label> -->
@@ -53,7 +60,7 @@
                     </div>
 
                     <div class="form__field">
-                        <input type="submit" value="Sign in" class="btn-primary">
+                        <input type="submit" name="logIn" value="Sign in" class="btn-primary">
                     </div>
 
                     <p class="signup">Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
