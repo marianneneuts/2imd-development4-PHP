@@ -1,3 +1,6 @@
+<?php include_once('core/autoload.php'); ?>
+<?php include_once('logged_in.inc.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
