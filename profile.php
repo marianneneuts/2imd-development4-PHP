@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php include_once('core/autoload.php'); ?>
+<?php include_once('logged_in.inc.php'); ?>
+
+<?php
+    $userId = $_GET["user"];
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +12,6 @@
 </head>
 <body>
     <?php include_once("nav.inc.php"); ?>
-
-    <a href="logout.php">Logout</a>
+    
 </body>
 </html>
