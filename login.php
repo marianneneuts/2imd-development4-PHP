@@ -30,6 +30,8 @@
   <meta charset="UTF-8">
   <title>IMD Social Showcase</title>
   <link rel="stylesheet" href="css/login.css?v=<?php echo time(); ?>">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="split left">
@@ -58,13 +60,13 @@
                         <!-- <label for="Password">Password</label> -->
                         <input type="password" name="password" placeholder="Password">
                     </div>
+                    <p class="forgot-password"><strong>Forgot your password?</strong> <a href="forgot_password.php" target="_blank">Reset your password here</a></p>
 
                     <div class="form__field">
                         <input type="submit" name="logIn" value="Sign in" class="btn-primary">
                     </div>
 
-                    <p class="signup">Don't have an account yet? 🤯 <a href="signup.php" target="_blank">Sign up</a></p>
-                    <p class="forgot-password">Forgot your password? <a href="forgot_password.php" target="_blank">Reset your password here</a></p>
+                    <p class="signup"><strong>Don't have an account yet? 🤯 </strong><a href="signup.php" target="_blank">Sign up</a></p>
                 </form>
             </div>
         </div>
