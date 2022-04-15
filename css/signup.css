@@ -1,3 +1,7 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -77,10 +81,11 @@ h2 {
 .form__field input[type = text], 
 .form__field input[type = password] {
     width: 100%;
-    padding: 0.3em;
+    padding: 0.5em;
     border: none;
     border-style: solid;
     border-color: #0600ff;
+    border-radius: 1em;
 }
 
 .btn-primary {
@@ -88,7 +93,8 @@ h2 {
     color: #0600ff;
     text-align: center;
     border: none;
-    padding: 0.3em 2em;
+    padding: 0.5em 2em;
+    border-radius: 1em;
 }
 
 .login {
