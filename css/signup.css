@@ -1,9 +1,37 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
 * {
     box-sizing: border-box;
 }
 
-body {
-    background-color: #fcd7f7;
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.left {
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.left img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.right {
+    right: 0;
+    background-color: #0600ff;
 }
 
 .IMDSignup {
@@ -16,22 +44,25 @@ body {
 }
 
 .form-error {
-    background-color: #bffd00;
+    background-color: #fcd7f7;
     color: #0600ff;
     padding: 0.3em 1em;
     margin-bottom: 1em;
 }
 
 .form-signup {
-    background-color: #fcd7f7;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #0600ff;
     padding: 1em;
     grid-column: form;
     grid-row: form;
 }
 
 h2 {
-    color: #0600ff;
+    color: white;
+}
+
+.inspiration {
+    color: white;
 }
 
 .form__field {
@@ -50,14 +81,30 @@ h2 {
 .form__field input[type = text], 
 .form__field input[type = password] {
     width: 100%;
-    padding: 0.3em;
+    padding: 0.5em;
     border: none;
+    border-style: solid;
+    border-color: #0600ff;
+    border-radius: 1em;
 }
 
 .btn-primary {
     background-color: #bffd00;
-    color: black;
+    color: #0600ff;
     text-align: center;
     border: none;
-    padding: 0.3em 2em;
+    padding: 0.5em 2em;
+    border-radius: 1em;
+}
+
+.login {
+    color: white;
+}
+
+.login a:active {
+    color: white;
+}
+
+.login a:visited {
+    color: white;
 }

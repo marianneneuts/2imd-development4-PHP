@@ -1,22 +1,15 @@
+<?php include_once('core/autoload.php'); ?>
+
 <?php
     if(!empty($_POST)) {
         try {
-            include_once(__DIR__ . "/classes/User.php");
-
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            // password hash
-            $options = [
-                'cost' => 12,
-            ];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT, $options);
-
             $user = new User();
-            $user->setUsername($username);
-            $user->setEmail($email);
-            $user->setPassword($password);
-
+            $user->setUsername($_POST["username"]);
+            $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
             $user->signup();
+
+            session_start();
             header("Location: login.php");
         }
         catch(Throwable $error) {
@@ -29,44 +22,50 @@
 <head>
     <meta charset="UTF-8">
     <title>[project codename]</title>
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
 </head>
 <body>
-	<div class="IMDSignup">
-        <div class="form-signup">
-            <form action="" method="post">
-                <h2>Sign up to [project codename]</h2>
-                <p>Inspiration is everywhere! Just take a look around. 👀</p>
+    <div class="split left">
+        <img src="https://weareimd.be/assets/images/home_banner.png" alt="weareimd">
+    </div>
 
-                <?php if(isset($error)): ?>
-                    <div class="form-error">
-                        <p><strong>Warnings:</strong></p>
-                        <?php if(isset($error)) { echo $error; }?>
+    <div class="split right">
+        <div class="IMDSignup">
+            <div class="form-signup">
+                <form action="" method="post">
+                    <h2>Sign up to [project codename]</h2>
+                    <p class="inspiration">Inspiration is everywhere! Just take a look around. 👀</p>
+
+                    <?php if(isset($error)): ?>
+                        <div class="form-error">
+                            <p><strong>Warnings:</strong></p>
+                            <?php if(isset($error)) { echo $error; }?>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <div class="form__field">
+                        <!-- <label for="Username">Username</label> -->
+                        <input autocomplete="off" type="text" name="username" placeholder="Username">
                     </div>
-                <?php endif; ?>
-                
-                <div class="form__field">
-                    <label for="Username">Username</label>
-                    <input autocomplete="off" type="text" name="username">
-                </div>
 
-                <div class="form__field">
-                    <label for="Email">Email</label>
-                    <input autocomplete="on" type="text" name="email">
-                </div>
+                    <div class="form__field">
+                        <!-- <label for="Email">Email</label> -->
+                        <input autocomplete="on" type="text" name="email" placeholder="Email">
+                    </div>
 
-                <div class="form__field">
-                    <label for="Password">Password</label>
-                    <input type="password" name="password">
-                </div>
+                    <div class="form__field">
+                        <!-- <label for="Password">Password</label> -->
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
 
-                <div class="form__field">
-                    <input type="submit" value="Sign up" class="btn-primary">
-                </div>
+                    <div class="form__field">
+                        <input type="submit" value="Sign up" class="btn-primary">
+                    </div>
 
-                <p>Already have an account? 🥳 <a href="login.php" target="_blank">Log in</a></p>
-            </form>
+                    <p class="login"><strong>Already have an account? 🥳</strong> <a href="login.php" target="_blank">Log in</a></p>
+                </form>
+            </div>
         </div>
-	</div>
+    </div>
 </body>
 </html>
