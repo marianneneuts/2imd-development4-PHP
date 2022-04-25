@@ -71,5 +71,7 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript" src="js/username_exists.js"></script>
 </body>
 </html>
