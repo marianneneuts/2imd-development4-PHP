@@ -76,5 +76,6 @@
     </div>
 
 <script type="text/javascript" src="js/username_exists.js"></script>
+<script type="text/javascript" src="js/email_exists.js"></script>
 </body>
 </html>
