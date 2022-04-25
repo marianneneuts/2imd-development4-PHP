@@ -6,7 +6,6 @@
         private $username;
         private $email;
         private $password;
-        private $picture;
 
         // id
         public function setUserId($userId){
@@ -38,13 +37,31 @@
                 throw new Exception("The username cannot contain blank spaces.");
             }
 
-            if($this->usernameExists($username)) {
+            if($this->usernameExistsAlready($username)) {
                 throw new Exception("This username is already taken.");
             }
         }
 
         // does the username already exist
-        private function usernameExists($username){ 
+        public static function usernameExists($username){ 
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select count(*) as count from users where username = :username");
+            $statement->bindValue(":username", $username);     
+            $statement->execute();
+            $count = $statement->fetchColumn();
+
+            $response = "<span style='color: #bffd00;'>Username is available.</span>";
+
+            if($count > 0) {
+                $response = "<span style='color: #fcd7f7;'>Username is not available.</span>";
+            }
+         
+            echo $response;
+            exit;
+        }
+        
+        // what if the username already exists
+        private function usernameExistsAlready($username){ 
             $conn = Db::getInstance();
             $statement = $conn->prepare("select id from users where username = :username");
             $statement->bindValue(":username", $username);            
@@ -52,10 +69,10 @@
             $result = $statement->fetch();
 
             if(!$result){
-                return False;
+                return false;
             } 
             else {
-                return True;
+                return true;
             }
         }
 
@@ -180,25 +197,5 @@
             $statement->execute();
             $result = $statement->fetch();
             return $result['id'];
-        }
-
-        // get the avatar based on the user id
-        public static function getAvatarById($userId) {
-            $conn = Db::getInstance();
-            $statement = $conn->prepare("select profile_picture from users where id = :userId");
-            $statement->bindValue(":userId", $userId);
-            $statement->execute();
-            $avatar = $statement->fetch();
-            return $avatar["profile_picture"];
-        }
-
-        // update the avatar
-        public function updateAvatar($userId, $picture){
-            $conn = Db::getInstance();
-            $statement = $conn->prepare("update users set users.profile_picture = :picture where id = :userId");
-            $statement->bindValue(":userId", $userId);
-            $statement->bindValue(":picture", $picture);
-            $result = $statement->execute();
-            return $result;
         }
     }
