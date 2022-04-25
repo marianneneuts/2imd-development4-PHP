@@ -45,7 +45,10 @@
                     
                     <div class="form__field">
                         <!-- <label for="Username">Username</label> -->
-                        <input autocomplete="off" type="text" name="username" placeholder="Username">
+                        <input autocomplete="off" type="text" id="username" name="username" placeholder="Username">
+
+                        <!-- username response -->
+                        <div id="username_response"></div>
                     </div>
 
                     <div class="form__field">
