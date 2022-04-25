@@ -1,23 +1,16 @@
+<?php include_once('core/autoload.php'); ?>
+
 <?php
     if(!empty($_POST)) {
         try {
-            include_once(__DIR__ . "/classes/User.php");
-
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $repeatPassword = $_POST['repeatPassword'];
-
             $user = new User();
-            $user->setUsername($username);
-            $user->setEmail($email);
-            $user->setPassword($password);
+            $user->setUsername($_POST["username"]);
+            $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
+            $user->signup();
 
-            if($user->canSignup($password, $repeatPassword)) {
-                session_start();
-                $user->signup();
-                header("Location: login.php");
-            }
+            session_start();
+            header("Location: login.php");
         }
         catch(Throwable $error) {
             $error = $error->getMessage();
@@ -30,6 +23,7 @@
     <meta charset="UTF-8">
     <title>[project codename]</title>
     <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
+    <script src="jquery-3.4.1.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="split left">
@@ -52,12 +46,18 @@
                     
                     <div class="form__field">
                         <!-- <label for="Username">Username</label> -->
-                        <input autocomplete="off" type="text" name="username" placeholder="Username">
+                        <input autocomplete="off" type="text" id="username" name="username" placeholder="Username">
+
+                        <!-- username response -->
+                        <div id="username_response"></div>
                     </div>
 
                     <div class="form__field">
                         <!-- <label for="Email">Email</label> -->
-                        <input autocomplete="on" type="text" name="email" placeholder="Email">
+                        <input autocomplete="on" type="text" id="email" name="email" placeholder="Email">
+
+                        <!-- email response -->
+                        <div id="email_response"></div>
                     </div>
 
                     <div class="form__field">
@@ -66,18 +66,16 @@
                     </div>
 
                     <div class="form__field">
-                        <!-- <label for="Password">Repeat password</label> -->
-                        <input type="password" name="repeatPassword" placeholder="Repeat password">
-                    </div>
-
-                    <div class="form__field">
                         <input type="submit" value="Sign up" class="btn-primary">
                     </div>
 
-                    <p class="login">Already have an account? 🥳 <a href="login.php" target="_blank">Log in</a></p>
+                    <p class="login"><strong>Already have an account? 🥳</strong> <a href="login.php" target="_blank">Log in</a></p>
                 </form>
             </div>
         </div>
     </div>
+
+<script type="text/javascript" src="js/username_exists.js"></script>
+<script type="text/javascript" src="js/email_exists.js"></script>
 </body>
 </html>
