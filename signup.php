@@ -54,7 +54,10 @@
 
                     <div class="form__field">
                         <!-- <label for="Email">Email</label> -->
-                        <input autocomplete="on" type="text" name="email" placeholder="Email">
+                        <input autocomplete="on" type="text" id="email" name="email" placeholder="Email">
+
+                        <!-- email response -->
+                        <div id="email_response"></div>
                     </div>
 
                     <div class="form__field">
