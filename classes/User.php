@@ -99,13 +99,31 @@
                 }
             }
 
-            if($this->emailExists($email)) {
+            if($this->emailExistsAlready($email)) {
                 throw new Exception("This email has already been registered.");
             }
         }
 
         // does the email already exist
-        private function emailExists($email){ 
+        public static function emailExists($email){ 
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select count(*) as count from users where email = :email");
+            $statement->bindValue(":email", $email);     
+            $statement->execute();
+            $count = $statement->fetchColumn();
+
+            $response = "<span style='color: #bffd00;'>Email is available.</span>";
+
+            if($count > 0) {
+                $response = "<span style='color: #fcd7f7;'>Email is not available.</span>";
+            }
+         
+            echo $response;
+            exit;
+        }
+
+        // what if the username already exists
+        private function emailExistsAlready($email){ 
             $conn = Db::getInstance();
             $statement = $conn->prepare("select id from users where email = :email");
             $statement->bindValue(":email", $email);            
@@ -113,16 +131,16 @@
             $result = $statement->fetch();
 
             if(!$result){
-                return False;
+                return false;
             } 
             else {
                 // return false if the result is the users own email
                 if (!empty($this->userId)) {
                     if ($result['id'] === $this->userId) {
-                        return False;
+                        return false;
                     }
                 }
-                return True;
+                return true;
             }
         }
 
