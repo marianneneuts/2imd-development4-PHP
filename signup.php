@@ -23,6 +23,7 @@
     <meta charset="UTF-8">
     <title>[project codename]</title>
     <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
+    <script src="jquery-3.4.1.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="split left">
