@@ -216,4 +216,24 @@
             $result = $statement->fetch();
             return $result['id'];
         }
+
+        // get the avatar based on the user id
+        public static function getAvatarById($userId) {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select profile_picture from users where id = :userId");
+            $statement->bindValue(":userId", $userId);
+            $statement->execute();
+            $avatar = $statement->fetch();
+            return $avatar["profile_picture"];
+        }
+        
+        // update the avatar
+        public function updateAvatar($userId, $picture){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("update users set users.profile_picture = :picture where id = :userId");
+            $statement->bindValue(":userId", $userId);
+            $statement->bindValue(":picture", $picture);
+            $result = $statement->execute();
+            return $result;
+        }
     }
