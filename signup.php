@@ -23,6 +23,7 @@
     <meta charset="UTF-8">
     <title>[project codename]</title>
     <link rel="stylesheet" href="css/signup.css?v=<?php echo time(); ?>">
+    <script src="jquery-3.4.1.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="split left">
@@ -45,12 +46,18 @@
                     
                     <div class="form__field">
                         <!-- <label for="Username">Username</label> -->
-                        <input autocomplete="off" type="text" name="username" placeholder="Username">
+                        <input autocomplete="off" type="text" id="username" name="username" placeholder="Username">
+
+                        <!-- username response -->
+                        <div id="username_response"></div>
                     </div>
 
                     <div class="form__field">
                         <!-- <label for="Email">Email</label> -->
-                        <input autocomplete="on" type="text" name="email" placeholder="Email">
+                        <input autocomplete="on" type="text" id="email" name="email" placeholder="Email">
+
+                        <!-- email response -->
+                        <div id="email_response"></div>
                     </div>
 
                     <div class="form__field">
@@ -67,5 +74,8 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript" src="js/username_exists.js"></script>
+<script type="text/javascript" src="js/email_exists.js"></script>
 </body>
 </html>
