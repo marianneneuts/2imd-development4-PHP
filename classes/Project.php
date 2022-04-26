@@ -2,6 +2,7 @@
 
 class Project{
     private $projectId;
+    private $userId;
     private $title;
     private $description;
     private $image;
@@ -15,6 +16,15 @@ class Project{
 
     public function getProjectId(){
         return $this->projectId;
+    }
+
+    // user id
+    public function setUserId($userId){
+        $this->userId = $userId;
+    }
+
+    public function getUserId(){
+        return $this->userId;
     }
 
     // title
@@ -67,6 +77,7 @@ class Project{
         $conn = Db::getInstance();
         $statement = $conn->prepare("insert into projects (title, description, image, tag, date) values (:title, :description, :image, :tag, :date)");
         $statement->bindValue(":title", $this->title);
+        //$statement->bindValue(":userId", $this->userId);
         $statement->bindValue(":description", $this->description);
         $statement->bindValue(":image", $this->image);
         $statement->bindValue(":tag", $this->tag);
