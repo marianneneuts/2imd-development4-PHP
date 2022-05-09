@@ -182,8 +182,8 @@
             $statement->bindValue(":username", $this->username);
             $statement->bindValue(":email", $this->email);
             $statement->bindValue(":password", $this->password);
-            $result = $statement->execute();
-            return $result;
+            $statement->execute();
+            return $conn->lastInsertId();
         }
 
         // login
@@ -200,7 +200,7 @@
             }
             
             if(password_verify($password, $hash)) {
-                return true;
+                return $user;
             } 
             else {
                 return false;

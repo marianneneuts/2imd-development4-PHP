@@ -7,9 +7,10 @@
             $user->setUsername($_POST["username"]);
             $user->setEmail($_POST["email"]);
             $user->setPassword($_POST["password"]);
-            $user->signup();
+            $userId = $user->signup();
 
             session_start();
+            $_SESSION["userId"] = intval($userId);
             header("Location: login.php");
         }
         catch(Throwable $error) {

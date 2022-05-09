@@ -1,5 +1,6 @@
 <?php include_once('core/autoload.php'); ?>
 <?php include_once('logged_in.inc.php'); ?>
+<?php var_dump($_SESSION); ?>
 
 <!DOCTYPE html>
 <html lang="en">

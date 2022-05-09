@@ -11,11 +11,12 @@
     if(isset($_POST["logIn"])) {
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $user = User::canLogin($username, $password);
 
-        if (User::canLogin($username, $password)) {
+        if ($user) {
             $_SESSION['username'] = $username;
             $_SESSION['loggedIn'] = true;
-            $_SESSION["userId"] = User::getUserIdByUsername($username);
+            $_SESSION["userId"] = intval($user["id"]); //zet string om naar int
 
             header("Location: index.php");
 		}
