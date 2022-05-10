@@ -31,6 +31,7 @@
 
         $project->setTag($_POST['tag']);
         $project->save();
+        header("Location: index.php");
     }
 
     
