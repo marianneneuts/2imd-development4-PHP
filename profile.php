@@ -4,6 +4,7 @@
 <?php
     $userId = $_GET["user"];
     $avatar = User::getAvatarById($userId);
+    $commit = true;
 
 ?><!DOCTYPE html>
 <html lang="en">
