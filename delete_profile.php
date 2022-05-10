@@ -5,4 +5,5 @@
 
     User::deleteProfile();
     header("Location: signup.php");
+    
 ?>
