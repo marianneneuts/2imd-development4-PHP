@@ -225,6 +225,8 @@
             $statement->execute();
             $avatar = $statement->fetch();
             return $avatar["profile_picture"];
+
+            var_dump($avatar);
         }
         
         // update the avatar
