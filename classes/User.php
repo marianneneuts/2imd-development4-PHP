@@ -238,4 +238,28 @@
             $result = $statement->execute();
             return $result;
         }
+
+        // delete user profile
+        public static function deleteProfile() {
+            $conn = Db::getInstance();
+            // delete profile based on the username
+            $statement = $conn->prepare("delete from users where username = :username");
+            $statement->bindValue("username", $_SESSION["username"]);
+            $statement->execute();
+
+            // delete associated projects
+            $statementProject = $conn->prepare("delete from projects where userId = :userId");
+            $statementProject->bindValue("userId", $_SESSION["userId"]);
+            $statementProject->execute();
+
+            // delete associated comments
+            $statementComment = $conn->prepare("delete from comments where userId = :userId");
+            $statementComment->bindValue("userId", $_SESSION["userId"]);
+            $statementComment->execute();
+
+            // delete associated likes
+            $statementLike = $conn->prepare("delete from likes where userId = :userId");
+            $statementLike->bindValue("userId", $_SESSION["userId"]);
+            $statementLike->execute();
+        }
     }
