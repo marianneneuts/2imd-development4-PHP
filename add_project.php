@@ -13,8 +13,9 @@
         $project->setTitle($_POST['title']);
         $project->setDescription($_POST['description']);
         //$project->setImage($_POST['file']);
-
+        var_dump($_FILES);
         if(isset($_FILES['file'])) {
+            echo "File is set";
             $currentDirectory = getcwd();
             $uploadDirectory = "/project_pictures/";
             $fileName = $_FILES['file']['name'];
@@ -22,8 +23,9 @@
             $fileSaveQuality = 80;
             $uploadPath = $currentDirectory . $uploadDirectory . $fileName;
             move_uploaded_file($fileTmpName, $uploadPath);
-            $project->setImage($_POST["project_pictures/" .$fileName]);
+            $project->setImage("project_pictures/" .$fileName);
         } else {
+            echo "File is not set";
             $project->setImage("project_pictures/default.png");
         }
 
@@ -44,7 +46,7 @@
 <body>
     <h1>Add another project to your profile</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div>
             <label for="title">Title</label>
             <input type="text" name="title" id="title">
