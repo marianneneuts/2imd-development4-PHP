@@ -3,21 +3,11 @@
     include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
 
-
-    /*public function updateProject($title, $tag){
-            $conn = Db::getInstance();
-            $statement = $conn->prepare("update projects set projects.title = :title, projects.tag = :tag where id = :projectId");
-            $statement->bindValue(":projectId", $this->projectId);
-            $statement->bindValue(":title", $title);
-            $statement->bindValue(":tag", $tag);
-            $result = $statement->execute();
-            return $result;
-    }*/
-
-
-    
-
-
+    if(!empty($_POST)){
+        $project = new Project($title, $tag);
+        $project->updateProject($_POST['title'], $_POST['tag']);
+        header("Location: index.php");
+    }
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -29,6 +19,24 @@
 </head>
 <body>
     <h1>Edit this project</h1>
+
+    <form action="" method="post">
+        <div>
+            <label for="title">Edit title</label> <br>
+            <input type="text" name="title" id="title">
+        </div>
+
+        <div>
+            <label for="tag">Edit tag</label><br>
+            <input type="text" name="tag" id="tag">
+        </div>
+
+        <div>
+            <input type="submit" name="submit" value="Submit">
+        </div>
+    </form>
+
+        
     
 </body>
 </html>
