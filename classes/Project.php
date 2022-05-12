@@ -81,4 +81,15 @@
             $statement->bindValue(":date", $this->date);
             $statement->execute();
         }
+
+        public function updateProject($title, $tag){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("update projects set projects.title = :title, projects.tag = :tag where id = :projectId");
+            $statement->bindValue(":projectId", $this->projectId);
+            $statement->bindValue(":title", $title);
+            $statement->bindValue(":tag", $tag);
+            $result = $statement->execute();
+            return $result;
+        }
+
     }
