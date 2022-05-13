@@ -22,13 +22,13 @@
             <img src="<?php echo($avatar); ?>" alt="avatar">
         </div>
 
-        <?php if($_SESSION["userId"] === $_GET["user"]): ?>
+        <?php if($_SESSION["userId"] == $_GET["user"]): ?>
             <a class="edit_profile" href="edit_profile.php"><i class="fa fa-camera" aria-hidden="true" style="color:#fff; background:transparent;"></i></a>
         <?php endif; ?>
-    </section>
 
-    <!-- delete user profile -->
-    <a href="delete_profile.php" class="deleteUser">Delete profile</a>
+        <!-- delete user profile -->
+        <a href="delete_profile.php" class="deleteUser">Delete profile</a>
+    </section>
     
 </body>
 </html>
