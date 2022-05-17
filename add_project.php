@@ -13,7 +13,6 @@
         $project->setTitle($_POST['title']);
         $project->setDescription($_POST['description']);
         //$project->setImage($_POST['file']);
-        var_dump($_FILES);
         if(isset($_FILES['file'])) {
             echo "File is set";
             $currentDirectory = getcwd();
