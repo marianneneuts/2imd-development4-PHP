@@ -47,13 +47,11 @@
             
             <div class="btn-submit">
                 <!-- upload file -->
-            <input type="file" name="upload_avatar" value="Upload avatar" class="upload_avatar" accept="image/png, image/jpeg">
+                <input type="file" name="upload_avatar" value="Upload avatar" class="upload_avatar" accept="image/png, image/jpeg">
                 <!-- update avatar -->
                 <input type="submit" name="update_avatar" value="Update avatar" class="btn-update">
-
                 <!-- delete avatar -->
                 <input type="submit" name="delete_avatar" value="Delete avatar" class="btn-delete">
-
                 <!-- cancel -->
                 <a href="profile.php?user=<?php echo($_SESSION['userId']) ?>">Cancel</a>
             </div>
