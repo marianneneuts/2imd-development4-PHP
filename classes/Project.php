@@ -2,7 +2,6 @@
 
     //include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
-    session_start();
 
     class Project{
         private $projectId;
@@ -80,5 +79,12 @@
             $statement->bindValue(":tag", $this->tag);
             $statement->bindValue(":date", $this->date);
             $statement->execute();
+        }
+
+        public static function getAll() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from projects");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
     }
