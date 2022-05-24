@@ -1,5 +1,5 @@
 <?php include_once('core/autoload.php'); ?>
-<?php include_once('logged_in.inc.php'); ?>
+<?php include_once('logged_in.inc.php'); ?> <!-- session_start() staat in loggin_in, nodig voor user id-->
 
 <?php
     $userId = $_GET["user"];
