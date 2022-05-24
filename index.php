@@ -1,7 +1,14 @@
-<?php include_once('core/autoload.php'); ?>
-<?php include_once('logged_in.inc.php'); ?>
+<?php 
+include_once('core/autoload.php');
+include_once('logged_in.inc.php'); // session_start() staat in loggin_in, nodig voor user id
 
-<!DOCTYPE html>
+$projects = Project::getAll();
+
+
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,14 +28,20 @@
         <button>Add project</button> <!-- add css to button -->
     </a>
 
-    <div class="card" style="width: 18rem;">
-        <img src="https://dontgetserious.com/wp-content/uploads/2021/11/everything-is-fine-memes.jpeg" class="card-img-top" alt="">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <?php if(!empty($projects)): ?>
+        <div class="d-flex container-fluid gap-4">
+            <?php foreach($projects as $p): ?>
+            <div class="card" style="width: 18rem;">
+                <img src="<?php echo htmlspecialchars($p['image']); ?>" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo htmlspecialchars($p['title']); ?></h5>
+                    <p class="card-text"><?php echo htmlspecialchars($p['description']); ?></p>
+                    <a href="project.php?projectID=<?php echo $p["id"]; ?>" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <?php endforeach; ?>
         </div>
-    </div>
+    <?php endif; ?>
     
 </body>
 </html>

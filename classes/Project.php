@@ -2,7 +2,6 @@
 
     //include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
-    session_start();
 
     class Project{
         private $projectId;
@@ -82,6 +81,7 @@
             $statement->execute();
         }
 
+<<<<<<< HEAD
         public function updateProject($title, $tag){
             $conn = Db::getInstance();
             $statement = $conn->prepare("update projects set projects.title = :title, projects.tag = :tag where id = :projectId");
@@ -92,4 +92,12 @@
             return $result;
         }
 
+=======
+        public static function getAll() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from projects");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+>>>>>>> main
     }
