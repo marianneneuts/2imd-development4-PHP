@@ -33,7 +33,11 @@
             <div class="card" style="width: 18rem;">
                 <img src="<?php echo htmlspecialchars($p['image']); ?>" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-user"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". "Username" ." </a>")?></h5>
+                    <div class="wrapper">
+                        <img src="profile_pictures/default.png" class="card-avatar" alt="">
+                        <h5 class="card-user"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". "Username" ." </a>")?></h5>
+                    </div>
+                    <br>
                     <h5 class="card-title"><?php echo htmlspecialchars($p['title']); ?></h5>
                     <p class="card-text"><?php echo htmlspecialchars($p['description']); ?></p>
                     <a href="project.php?projectId=<?php echo $p["id"]; ?>" class="btn btn-primary">View details</a>
