@@ -18,25 +18,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMD Social Showcase</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
     <?php include_once("nav.inc.php"); ?>
-    <h1>Edit this project</h1>
+    <h1 class="ms-3">Edit this project</h1>
 
-    <form action="" method="post">
-        <div>
+    <form class="ms-4" action="" method="post">
+        <div class="mt-3">
             <label for="title">Edit title</label> <br>
-            <input type="text" name="title" id="title">
+            <input class="rounded" type="text" name="title" id="title">
         </div>
 
-        <div>
+        <div class="mt-3">
             <label for="tag">Edit tag</label><br>
-            <input type="text" name="tag" id="tag">
+            <input class="rounded" type="text" name="tag" id="tag">
         </div>
 
-        <div>
-            <input type="submit" name="submit" value="Submit">
-        </div>
+        <input class="btn btn-primary mt-3" type="submit" name="submit" value="Submit">
     </form>
 
         
