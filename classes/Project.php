@@ -81,7 +81,6 @@
             $statement->execute();
         }
 
-<<<<<<< HEAD
         public function updateProject($title, $tag){
             $conn = Db::getInstance();
             $statement = $conn->prepare("update projects set projects.title = :title, projects.tag = :tag where id = :projectId");
@@ -92,12 +91,18 @@
             return $result;
         }
 
-=======
         public static function getAll() {
             $conn = Db::getInstance();
             $statement = $conn->prepare("select * from projects");
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
->>>>>>> main
+
+        public static function getProjectById($id) {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from projects where id = :id");
+            $statement->bindValue(":id", $id);
+            $statement->execute();
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        }
     }
