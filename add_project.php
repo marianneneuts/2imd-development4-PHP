@@ -42,33 +42,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMD Social Showcase</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Add another project to your profile</h1>
+    <?php include_once("nav.inc.php"); ?>
+    <h1 class="ms-3">Add another project to your profile</h1>
 
-    <form action="" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
+    <form class="ms-4" action="" method="post" enctype="multipart/form-data">
+        <div class="mt-4">
+            <label for="title">Title</label><br>
+            <input class="rounded" type="text" name="title" id="title">
         </div>
 
-        <div>
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description">
+        <div class="mt-2">
+            <label for="description">Description</label><br>
+            <input class="rounded" type="text" name="description" id="description">
         </div>
 
-        <div>
-            <label for="image">Image</label>
-            <input type="file" name="file" >
+        <div class="mt-2">
+            <label for="image">Image</label><br>
+            <input type="file" name="file" value="" >
         </div>
 
-        <div>
-            <label for="tag">Tag</label>
-            <input type="text" name="tag" id="tag">
+        <div class="mt-2">
+            <label for="tag">Tag</label><br>
+            <input class="rounded" type="text" name="tag" id="tag">
         </div>
 
-        <div>
-            <input type="submit" name="submit" value="Submit">
+        <div class="">
+            <input class="btn btn-primary mt-3" type="submit" name="submit" value="Submit">
         </div>
         
     </form>
