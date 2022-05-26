@@ -5,7 +5,6 @@ include_once('core/autoload.php');
 include_once('logged_in.inc.php');
 
     $projectId = $_GET['projectId'];
-    $userId = $_GET["user"];
     //vergelijken userid uit session met userid van project 
     $project = Project::getProjectById($projectId);
 
@@ -22,30 +21,31 @@ include_once('logged_in.inc.php');
 </head>
 <body>
     <?php include_once("nav.inc.php"); ?>
-    <div >
+    <div class="ms-3 bg-light rounded">
 
-        <h1><?php echo htmlspecialchars($project['title']); ?></h1>
-        <p><?php echo htmlspecialchars($project['description']); ?></p>
-        <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="">
-        <p><?php echo htmlspecialchars($project['tag']); ?></p>
-        <p><?php echo htmlspecialchars($project['date']); ?></p>
-        <br>
-        <br>
+        <h1 class="ps-4 pt-4"><?php echo htmlspecialchars($project['title']); ?></h1>
+        <img class="w-25 ms-4 mt-3 " src="<?php echo htmlspecialchars($project['image']); ?>" alt="">
+        <h5 class="ps-3 fw-bold pt-3">Description</h5>
+        <p class="ps-4"><?php echo htmlspecialchars($project['description']); ?></p>
+        <h5 class=" ps-3 fw-bold">Tag</h5>
+        <p class="ps-4"><?php echo htmlspecialchars($project['tag']); ?></p>
+        <h5 class=" ps-3 fw-bold">Posted on</h5>
+        <p class="ps-4"><?php echo htmlspecialchars($project['date']); ?></p>
 
-        <?php if($_SESSION["userId"] == $_GET["user"]): ?>
-        <a href="edit_project.php?projectId=<?php echo $project['id']; ?>">
-            <button>Edit project</button>
-        </a>
-        <?php endif; ?>
+        <div class="ps-3 ">
+            <a class="btn btn-secondary mb-3" href="edit_project.php?projectId=<?php echo $project['id']; ?>">Edit project</a>
 
+            <!-- delete user project -->
+            <a class="btn btn-danger mb-3 ms-3" href="delete_project.php?projectId=<?php echo $_GET["projectId"]; ?>" class="deleteProject">Delete project</a>
 
+        </div>
+        
     </div>
 
             
 
 
-    <!-- delete user project -->
-    <a href="delete_project.php?projectId=<?php echo $_GET["projectId"]; ?>" class="deleteProject">Delete project</a>
+    
     
 </body>
 </html>
