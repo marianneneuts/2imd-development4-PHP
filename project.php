@@ -5,14 +5,9 @@ include_once('core/autoload.php');
 include_once('logged_in.inc.php');
 
     $projectId = $_GET['projectId'];
-    echo $projectId;
-//vergelijken userid uit session met userid van project 
+    $userId = $_GET["user"];
+    //vergelijken userid uit session met userid van project 
     $project = Project::getProjectById($projectId);
-    
-
-
-    $projectId = $_GET['projectId'];
-    var_dump($project);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -36,9 +31,13 @@ include_once('logged_in.inc.php');
         <p><?php echo htmlspecialchars($project['date']); ?></p>
         <br>
         <br>
+
+        <?php if($_SESSION["userId"] == $_GET["user"]): ?>
         <a href="edit_project.php?projectId=<?php echo $project['id']; ?>">
-            <button>Edit project</button> <!-- add css to button -->
+            <button>Edit project</button>
         </a>
+        <?php endif; ?>
+
 
     </div>
 
