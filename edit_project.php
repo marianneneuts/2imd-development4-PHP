@@ -3,12 +3,12 @@
     include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
     $projectId = $_GET['projectId'];
-    echo $projectId;
 
-    if(!empty($_POST)){
-        $project = new Project($title, $tag);
-        $project->updateProject($_POST['title'], $_POST['tag']);
-        header("Location: index.php");
+    // update title and tag
+    if(isset($_POST['submit'])){
+        $project = new Project();
+        $project->updateProject($_POST['title'], $_POST['tag'], $projectId);
+        header("Location: project.php?projectId=$projectId");
     }
 
 ?><!DOCTYPE html>
