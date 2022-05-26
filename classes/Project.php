@@ -2,6 +2,7 @@
 
     //include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
+    session_start();
 
     class Project{
         private $projectId;
@@ -105,7 +106,7 @@
             $statement->execute();
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
-        
+
         // delete user project
         public static function deleteProject($projectId) {
             $conn = Db::getInstance();
