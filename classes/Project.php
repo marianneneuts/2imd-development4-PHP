@@ -87,4 +87,12 @@
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        // delete user project
+        public static function deleteProject($projectId) {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("delete from projects where id = :projectId");
+            $statement->bindValue(":projectId", $projectId);
+            $statement->execute();
+        }
     }

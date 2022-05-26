@@ -262,4 +262,11 @@
             $statementLike->bindValue("userId", $_SESSION["userId"]);
             $statementLike->execute();
         }
+
+        public static function getAll() {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from users");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
