@@ -94,7 +94,7 @@
 
         public static function getAll() {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("select * from projects");
+            $statement = $conn->prepare("select users.id as userId, users.username, users.profile_picture, projects.id, projects.title, projects.description, projects.image, projects.date from projects inner join users on projects.userId = users.id");
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }

@@ -34,8 +34,8 @@
                 <img src="<?php echo htmlspecialchars($p['image']); ?>" class="card-img-top" alt="">
                 <div class="card-body">
                     <div class="wrapper">
-                        <img src="profile_pictures/default.png" class="card-avatar" alt="">
-                        <h5 class="card-user"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". "Username" ." </a>")?></h5>
+                        <img src="<?php echo($p['profile_picture'])?>" class="card-avatar" alt="">
+                        <h5 class="card-user"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". htmlspecialchars($p["username"]) ." </a>")?></h5>
                     </div>
                     <br>
                     <h5 class="card-title"><?php echo htmlspecialchars($p['title']); ?></h5>
