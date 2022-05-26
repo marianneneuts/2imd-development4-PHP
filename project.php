@@ -1,6 +1,14 @@
 <?php
+
+include_once(__DIR__ . "/classes/Db.php");
+include_once('core/autoload.php');
     $projectId = $_GET['projectID'];
     echo $projectId;
+//vergelijken userid uit session met userid van project 
+    $project = Project::getProjectById($projectId);
+    
+
+    var_dump($project);
 
 
 ?><!DOCTYPE html>
