@@ -2,7 +2,7 @@
 
     //include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
-    session_start();
+    if(!isset($_SESSION)) { session_start(); }
 
     class Project{
         private $projectId;
