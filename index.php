@@ -21,13 +21,19 @@
         <button>Add project</button> <!-- add css to button -->
     </a>
 
+    <br>
+
+    <?php if(empty($projects)): ?>
+        <h1 id="noProjects">Nothing to see here!</h1>
+    <?php endif; ?>
+
     <?php if(!empty($projects)): ?>
         <div class="d-flex container-fluid gap-4">
             <?php foreach($projects as $p): ?>
             <div class="card" style="width: 18rem;">
                 <img src="<?php echo htmlspecialchars($p['image']); ?>" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". "Username" ." </a>")?></h5>
+                    <h5 class="card-user"><?php echo("<a href='profile.php?user=". $p["userId"] ."'> ". "Username" ." </a>")?></h5>
                     <h5 class="card-title"><?php echo htmlspecialchars($p['title']); ?></h5>
                     <p class="card-text"><?php echo htmlspecialchars($p['description']); ?></p>
                     <a href="project.php?projectId=<?php echo $p["id"]; ?>" class="btn btn-primary">View details</a>
