@@ -17,9 +17,7 @@
 <body>
     <?php include_once("nav.inc.php"); ?>
     
-    <a href="add_project.php">
-        <button>Add project</button> <!-- add css to button -->
-    </a>
+    <a class="btn btn-primary ms-3" href="add_project.php">Add project</a>
 
     <br>
 
@@ -28,7 +26,7 @@
     <?php endif; ?>
 
     <?php if(!empty($projects)): ?>
-        <div class="d-flex container-fluid gap-4">
+        <div class="d-flex container-fluid gap-4 mt-4">
             <?php foreach($projects as $p): ?>
             <div class="card" style="width: 18rem;">
                 <img src="<?php echo htmlspecialchars($p['image']); ?>" class="card-img-top" alt="">
@@ -40,7 +38,7 @@
                     <br>
                     <h5 class="card-title"><?php echo htmlspecialchars($p['title']); ?></h5>
                     <p class="card-text"><?php echo htmlspecialchars($p['description']); ?></p>
-                    <a href="project.php?projectId=<?php echo $p["id"]; ?>" class="btn btn-primary">View details</a>
+                    <a href="project.php?projectId=<?php echo $p["id"]; ?>" class="btn btn-info">View details</a>
                 </div>
             </div>
             <?php endforeach; ?>
