@@ -2,6 +2,8 @@
 
     include_once(__DIR__ . "/classes/Db.php");
     include_once('core/autoload.php');
+    $projectId = $_GET['projectId'];
+    echo $projectId;
 
     if(!empty($_POST)){
         $project = new Project($title, $tag);
@@ -18,6 +20,7 @@
     <title>IMD Social Showcase</title>
 </head>
 <body>
+    <?php include_once("nav.inc.php"); ?>
     <h1>Edit this project</h1>
 
     <form action="" method="post">
