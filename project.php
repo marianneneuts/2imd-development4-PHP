@@ -1,12 +1,17 @@
 <?php
 
-include_once(__DIR__ . "/classes/Db.php");
-include_once('core/autoload.php');
-include_once('logged_in.inc.php');
+    include_once(__DIR__ . "/classes/Db.php");
+    include_once('core/autoload.php');
+    include_once('logged_in.inc.php');
+    include_once(__DIR__ . '/classes/Comment.php');
+
+    $userId = $_SESSION['userId'];
 
     $projectId = $_GET['projectId'];
     //vergelijken userid uit session met userid van project 
     $project = Project::getProjectById($projectId);
+    $allComments = Comment::getAllComments($projectId);
+    //var_dump($allComments);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -22,7 +27,7 @@ include_once('logged_in.inc.php');
 <body>
     <?php include_once("nav.inc.php"); ?>
     <div class="ms-3 bg-light rounded">
-
+        
         <h1 class="ps-4 pt-4"><?php echo htmlspecialchars($project['title']); ?></h1>
         <img class="w-25 ms-4 mt-3 " src="<?php echo htmlspecialchars($project['image']); ?>" alt="">
         <h5 class="ps-3 fw-bold pt-3">Description</h5>
@@ -31,6 +36,20 @@ include_once('logged_in.inc.php');
         <p class="ps-4"><?php echo htmlspecialchars($project['tag']); ?></p>
         <h5 class=" ps-3 fw-bold">Posted on</h5>
         <p class="ps-4"><?php echo htmlspecialchars($project['date']); ?></p>
+
+        <div class="post__comments">
+            <div class="post__comments__form">
+                <h5 class="ps-3 fw-bold pt-3">Comments</h5>
+                <input class="ms-4" type="text" id="commentText">
+                <p href="#" class="btn btn-primary" id="btnAddComment" data-projectid=<?php echo $projectId ?>>Add comment</p>
+            </div>  
+            
+            <ul class="post__comments__list">
+                <?php foreach($allComments as $c): ?>
+                <li><?php echo $c['text']; ?></li>  
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
         <div class="ps-3 ">
             <a class="btn btn-secondary mb-3" href="edit_project.php?projectId=<?php echo $project['id']; ?>">Edit project</a>
@@ -45,7 +64,7 @@ include_once('logged_in.inc.php');
             
 
 
-    
+    <script src="js/comments.js"></script>
     
 </body>
 </html>
