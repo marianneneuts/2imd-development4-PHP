@@ -5,13 +5,9 @@
     include_once('logged_in.inc.php');
     include_once(__DIR__ . '/classes/Comment.php');
 
-    $userId = $_SESSION['userId'];
-
     $projectId = $_GET['projectId'];
-    //vergelijken userid uit session met userid van project 
     $project = Project::getProjectById($projectId);
     $allComments = Comment::getAllComments($projectId);
-    //var_dump($allComments);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -42,8 +38,7 @@
                 <h5 class="ps-3 fw-bold pt-3">Comments</h5>
                 <input class="ms-4" type="text" id="commentText">
                 <p href="#" class="btn btn-primary" id="btnAddComment" data-projectid=<?php echo $projectId ?>>Add comment</p>
-            </div>  
-            
+            </div>
             <ul class="post__comments__list">
                 <?php foreach($allComments as $c): ?>
                 <li><?php echo $c['text']; ?></li>  
