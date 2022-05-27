@@ -21,9 +21,9 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 
 | Features - Level 2 [due date, 29/04/2022] | Info | Status |
 | ------------- | ------------- | ------------- |
-| Feature 11 | Request profile | Not Started |
+| Feature 11 | Request profile | Done |
 | Feature 12 | Delete projects | Done |
-| Feature 13 | Edit projects | Not Started |
+| Feature 13 | Edit projects | Done |
 | Feature 14 | Search function | Not Started |
 | Feature 15 ⚡AJAX⚡ | Account availability | Done |
 
