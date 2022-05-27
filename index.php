@@ -4,6 +4,8 @@
 
     $projects = Project::getAll();
 
+    
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +18,47 @@
 </head>
 <body>
     <?php include_once("nav.inc.php"); ?>
+
+    <form class="ms-3" method="post">
+        <label>Search</label>
+        <input type="text" name="search">
+        <input type="submit" name="submit">
+    </form>
+
+    <?php
+        $conn = Db::getInstance();
+
+        if (isset($_POST["submit"])) {
+            $searchinput = $_POST["search"];
+            $project = $conn->prepare("SELECT * FROM `projects` WHERE title = '$searchinput' OR tag = '$searchinput'");
+
+            $project->setFetchMode(PDO:: FETCH_OBJ);
+            $project -> execute();
+
+            if($row = $project->fetch())
+            {
+                ?>
+                
+                <table class="ms-4 mt-3">
+                    <h5 class="ms-4 mt-3">Search results:</h5>
+                    <tr>
+                        <th>Name</th>
+                        <th  class="ps-3">Tag</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo $row->title; ?></td>
+                        <td  class="ps-3"><?php echo $row->tag;?></td>
+                    </tr>
+
+                </table>
+        <?php 
+            }else{
+                    echo "Project does not exist";
+                }
+        }
+    ?>
     
-    <a class="btn btn-primary ms-3" href="add_project.php">Add project</a>
+    <a class="btn btn-primary ms-3 mt-3" href="add_project.php">Add project</a>
 
     <br>
 
@@ -44,6 +85,8 @@
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+
+    
     
 </body>
 </html>
