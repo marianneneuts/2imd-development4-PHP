@@ -51,19 +51,22 @@
                     </tr>
 
                 </table>
-        <?php 
-            }else{
-                    echo "Project does not exist";
-                }
-        }
-    ?>
+            <?php 
+                }else{
+                        echo "Project does not exist";
+                    }
+            }
+            ?>
+        
+        
+    <br>
     
     <a class="btn btn-primary ms-3 mt-3" href="add_project.php">Add project</a>
 
     <br>
 
     <?php if(empty($projects)): ?>
-        <h1 id="noProjects">Nothing to see here!</h1>
+        <h1 class="ms-3 mt-3" id="noProjects">Nothing to see here!</h1>
     <?php endif; ?>
 
     <?php if(!empty($projects)): ?>
