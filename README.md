@@ -24,8 +24,18 @@ Een webapplicatie waarmee studenten IMD (of MEB, e.d.) projecten kunnen delen zo
 | Feature 11 | Request profile | Done |
 | Feature 12 | Delete projects | Done |
 | Feature 13 | Edit projects | Done |
-| Feature 14 | Search function | Not Started |
+| Feature 14 | Search function | Done |
 | Feature 15 ⚡AJAX⚡ | Account availability | Done |
+
+| Features - Level 2 [due date, 06/05/2022] | Info | Status |
+| ------------- | ------------- | ------------- |
+| Feature 16 ⚡AJAX⚡ | Comments | Done |
+| Feature 17 ⚡AJAX⚡ | Likes | Not Started |
+| Feature 18 ⚡AJAX⚡ | Report projects | Not Started |
+| Feature 19 ⚡AJAX⚡ | Report users | Not Started |
+| Feature 20 ⚡AJAX⚡ | Follow users | Not Started |
+| Feature 22 ⚡AJAX⚡ | Unfollow users | Not Started |
+| Feature 22 ⚡AJAX⚡ | Build a showcase | Not Started |
 
 #### Understanding Git 🤓
 https://docs.google.com/document/d/1B9Omut-Ol6qq0Ukv7IviALKw6RuAI_BEAvm4773K1M8/edit?usp=sharing
